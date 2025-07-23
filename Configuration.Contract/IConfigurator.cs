@@ -1,23 +1,8 @@
 ﻿namespace DavidTielke.PMA.CrossCutting.Configuration.Contract
 {
-
-    // Pro
-    // + Gut lesbar
-    // + Stark typisiert
-    // Negativ
-    // - Alle Configwerte der gesamten Domäne
-    public interface IConfigurator1
+    public interface IConfigurator
     {
-        string GetPath();
-        int GetAgeLimit();
-    }
-
-    public interface IConfigurator2
-    {
-
-    }
-    public interface IConfigurator3
-    {
-
+        TItem Get<TItem>(string category, string key);
+        void Set(string category, string key, object value);
     }
 }

@@ -1,4 +1,5 @@
-﻿using DavidTielke.PMA.Data.DataStoring;
+﻿using DavidTielke.PMA.CrossCutting.Configuration.Contract;
+using DavidTielke.PMA.Data.DataStoring;
 using DavidTielke.PMA.Data.FileStoring;
 using DavidTielke.PMA.Logic.PersonManagement;
 using Mappings;
@@ -15,6 +16,10 @@ namespace DavidTielke.PMA.UI.ConsoleClient
             services.AddTransient<IPersonDisplayCommands, PersonDisplayCommands>();
 
             var provider = services.BuildServiceProvider();
+
+            var config = provider.GetRequiredService<IConfigurator>();
+            config.Set("PersonManagement", "AgeThreshold", 10);
+            config.Set("DataStoring", "CsvPath", "data.csv");
 
             var displayCommands = provider.GetRequiredService<IPersonDisplayCommands>();
 

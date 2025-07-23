@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Configurator\Configurator.csproj" />
     <ProjectReference Include="..\DataStoring\DataStoring.csproj" />
     <ProjectReference Include="..\FileStoring\FileStoring.csproj" />
     <ProjectReference Include="..\PersonManagement\PersonManagement.csproj" />

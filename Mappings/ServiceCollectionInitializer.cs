@@ -1,4 +1,5 @@
-﻿using DavidTielke.PMA.Data.DataStoring;
+﻿using DavidTielke.PMA.CrossCutting.Configuration.Contract;
+using DavidTielke.PMA.Data.DataStoring;
 using DavidTielke.PMA.Data.DataStoring.Contract;
 using DavidTielke.PMA.Data.FileStoring;
 using DavidTielke.PMA.Data.FileStoring.Contract;
@@ -16,6 +17,8 @@ namespace Mappings
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IPersonParser, PersonParser>();
             services.AddTransient<IFileReader, FileReader>();
+
+            services.AddSingleton<IConfigurator, Configurator.Configurator>();
 
             return services;
         }
